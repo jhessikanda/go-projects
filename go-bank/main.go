@@ -13,6 +13,10 @@ func main() {
 
 	// fmt.Printf("%+v\n", storage)
 
+	if err = storage.Init(); err != nil {
+		log.Fatal(err)
+	}
+
 	server := NewAPIServer(":3000", storage)
 	server.Run()
 }
